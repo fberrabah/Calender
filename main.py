@@ -1,9 +1,11 @@
 from model.connection import *
-from model.connectaccount import *
-from model.createaccount import *
-from controller.verify import *
-from controller.profil import *
+from controller.delete import *
+from controller.change import *
+from controller.create import *
 import sys
+import calendar
+
+
 
 
 test=connection()
@@ -12,18 +14,26 @@ test.close_connection()
 
 
 if __name__=='__main__':
+    print(calendar.month(2020, 2))
 
     choix=""     
     print("\n----------------------------------------\n")
-    print('Bienvenue dans votre application préférée.')
+    print('Bienvenue dans votre agenda personnel.')
     print("\n----------------------------------------\n")
     while choix != "q":
-        choix = input("\n(o) creer un évenement : \n(n) si vous souhaitez créer un compte : \n(q) pour quitter : ").lower()
+        choix = input("\n(o) creer un événement \n(s) si vous souhaitez supprimer un événement \n(c) Si vous souhaitez changer un événement \n(q) pour quitter\n Votre choix :").lower()
         if choix == "o":          
-            log = Connectaccount()
-            log.connect()
+            log = Createrdv()
+            log.create()
 
-        if choix == "n":
+        if choix == "s":
             
-            test= Createaccount()
-            test.create()
+            test = Delete()
+            test.del_rdv()
+
+        if choix == "q":
+            
+            print("A bientôt.")
+            sys.exit() 
+
+

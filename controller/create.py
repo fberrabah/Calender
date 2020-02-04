@@ -1,4 +1,4 @@
-psqlfrom model.connection import *
+from model.connection import *
 
 class Createrdv():
 
