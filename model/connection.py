@@ -12,7 +12,7 @@ class connection():
         # The class stores an instance of pyscopg2 connection and cursor classes
         self.connection = None
         self.cursor = None    
-
+    
     def initialize_connection(self):
         """Instanciate a connection and a cursor and store them in the related attributs"""
         try:
