@@ -1,6 +1,6 @@
 # Python3 : Agenda
 
-Créer le <a href="https://fr.wikipedia.org/wiki/Agenda">jeu Simon</a> en utilisant python3.
+Créer un <a href="https://fr.wikipedia.org/wiki/Agenda">agenda personnel</a> en utilisant python3.
 
 # Déroulement 
 
