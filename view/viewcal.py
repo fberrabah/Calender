@@ -1,4 +1,4 @@
-from model.connection import * 
+from model.connection import *
 import calendar
 import datetime
 import locale
@@ -30,18 +30,26 @@ class Loginview():
         print(date)
 
     def previousmonth(self):
-        self.month -= 1
+        if self.month > 1:
+            self.month -= 1 
+        else :
+            self.month = 12 
+            self.year -= 1
         year = datetime.datetime.today().year
-        date = calendar.month(year, self.month)
+        date = calendar.month(self.year, self.month)
         print(date)
 
+
+
+
     def nextmonth(self):
-        self.month += 1
-        if self.month > 12 :
+        if self.month < 12:
+            self.month += 1 
+        else :
+            self.month = 1
             self.year += 1
         year = datetime.datetime.today().year
         date = calendar.month(self.year, self.month)
-
         print(date)
 
 

@@ -20,7 +20,6 @@ if __name__=='__main__':
     x = datetime.datetime.now()
     print(x.strftime("      %x"))
     vue = Loginview()
-    #print(calendar.month(2020, 2))
     vue.monthcurrent()
 
     
@@ -45,10 +44,15 @@ if __name__=='__main__':
             
             test = Delete()
             test.del_rdv()
+        
+        if choix == "c":
+            change = Change()
+            change.change_datta()
+            print ("Information modifié")
 
         if choix == "q":
             
             print("A bientôt.")
-            sys.exit() 
+            
 
 

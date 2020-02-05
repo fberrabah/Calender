@@ -2,16 +2,15 @@ from model.connection import *
 
 class Createrdv():
 
-    def __init__(self):
+    def __init__(self,):
         self.choice = connection()
         self.title = None
         self.date = None
         self.hour = None
         self.description = None
-
         
 
-    def create(self):
+    def create(self,):
         self.choice.initialize_connection()
         self.title = input("Entrer le titre :").lower()
         self.date = input("Entrer la date du rendez-vous :").lower()
@@ -21,4 +20,5 @@ class Createrdv():
                                   "(%s, %s, %s, %s)" ,(self.title, self.date, self.hour,self.description))
         self.choice.connection.commit()
         self.choice.close_connection()
+
 
