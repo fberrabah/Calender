@@ -14,10 +14,11 @@ class Loginview():
     
     def read(self):
         self.choice.initialize_connection()
-        self.choice.cursor.execute("SELECT * FROM rdv;")
+        self.date =  input("Enter la date :")
+        self.hour =  input("Enter l'heure :")
+        self.choice.cursor.execute("SELECT * FROM rdv WHERE date = %s AND hour = %s;", (self.date, self.hour,))
         test = self.choice.cursor.fetchall()
         self.choice.close_connection()
-        return test
 
     def monthcurrent(self):
         
@@ -27,7 +28,7 @@ class Loginview():
         date = calendar.month(year, month)
         self.month = month
         self.year = year
-        print(date)
+        print("\033[35m{}""\033[0m".format(date))
 
     def previousmonth(self):
         if self.month > 1:
@@ -37,7 +38,7 @@ class Loginview():
             self.year -= 1
         year = datetime.datetime.today().year
         date = calendar.month(self.year, self.month)
-        print(date)
+        print("\033[34m{}""\033[0m".format(date))
 
 
 
@@ -50,7 +51,7 @@ class Loginview():
             self.year += 1
         year = datetime.datetime.today().year
         date = calendar.month(self.year, self.month)
-        print(date)
+        print("\033[31m{}""\033[0m".format(date))
 
 
 

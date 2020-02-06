@@ -3,32 +3,27 @@ from controller.delete import *
 from controller.change import *
 from controller.create import *
 from view.viewcal import *
-import sys
+from model.entities import *
 import calendar
 import datetime
 
 
 
 
-test=connection()
-test.initialize_connection()
-test.close_connection()
-
-
-
 if __name__=='__main__':
     x = datetime.datetime.now()
-    print(x.strftime("      %x"))
+    print(x.strftime("\033[34m      %x\033[0m"))
     vue = Loginview()
     vue.monthcurrent()
 
     
     choix=""     
-    print("\n----------------------------------------\n")
-    print('Bienvenue dans votre agenda personnel.')
-    print("\n----------------------------------------\n")
+    print("\033[32m\n----------------------------------------\n\033[0m")
+    print('\033[32mBienvenue dans votre agenda personnel.\033[0m')
+    print("\033[32m\n----------------------------------------\n\033[0m")
     while choix != "q":
-        choix = input("\n(p) Pour voir le mois précédent.\n(s) Pour voir le mois suivant.\n(o) Creer un événement.\n(a) Si vous souhaitez supprimer un événement \n(c) Si vous souhaitez changer un événement.\n(q) Pour quitter.\nVotre choix :").lower()
+       
+        choix = input("\033[33m\n(p) Pour voir le mois précédent.\n(s) Pour voir le mois suivant.\n(o) Creer un événement.\n(a) Si vous souhaitez supprimer un événement \n(c) Si vous souhaitez changer un événement.\n(q) Pour quitter.\nVotre choix :\033[0m").lower()
         if choix == "p":          
             vue.previousmonth()
 
@@ -49,9 +44,13 @@ if __name__=='__main__':
             change = Change()
             change.change_datta()
             print ("Information modifié")
+        
+        if choix == "v":
+            lire = Read()
+            lire.read()
+    
 
         if choix == "q":
-            
             print("A bientôt.")
             
 
