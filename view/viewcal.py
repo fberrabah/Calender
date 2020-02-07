@@ -2,23 +2,19 @@ from model.connection import *
 import calendar
 import datetime
 import locale
+from model.hydra import *
+from model.entities import *
 
 
 class Loginview():
+    view = Read()
     def __init__(self):
         self.choice = connection()
         self.month = None
         self.year = None
+        
 
 
-    
-    def read(self):
-        self.choice.initialize_connection()
-        self.date =  input("Enter la date :")
-        self.hour =  input("Enter l'heure :")
-        self.choice.cursor.execute("SELECT * FROM rdv WHERE date = %s AND hour = %s;", (self.date, self.hour,))
-        test = self.choice.cursor.fetchall()
-        self.choice.close_connection()
 
     def monthcurrent(self):
         
@@ -53,6 +49,13 @@ class Loginview():
         date = calendar.month(self.year, self.month)
         print("\033[31m{}""\033[0m".format(date))
 
+
+    def show_rdv(self):
+        date = input("Entrer la date :")
+        test = self.view.read(date)
+        if test :
+            for i in test :
+                print(i)
 
 
 

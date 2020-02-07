@@ -12,7 +12,6 @@ import datetime
 
 if __name__=='__main__':
     x = datetime.datetime.now()
-    print(x.strftime("\033[34m      %x\033[0m"))
     vue = Loginview()
     vue.monthcurrent()
 
@@ -23,7 +22,7 @@ if __name__=='__main__':
     print("\033[32m\n----------------------------------------\n\033[0m")
     while choix != "q":
        
-        choix = input("\033[33m\n(p) Pour voir le mois précédent.\n(s) Pour voir le mois suivant.\n(o) Creer un événement.\n(a) Si vous souhaitez supprimer un événement \n(c) Si vous souhaitez changer un événement.\n(q) Pour quitter.\nVotre choix :\033[0m").lower()
+        choix = input("\033[33m\n(p) Pour voir le mois précédent.\n(s) Pour voir le mois suivant.\n(v) Pour voir un événement.\n(o) Creer un événement.\n(a) Si vous souhaitez supprimer un événement \n(c) Si vous souhaitez modifier un événement.\n(q) Pour quitter.\nVotre choix :\033[0m").lower()
         if choix == "p":          
             vue.previousmonth()
 
@@ -46,8 +45,8 @@ if __name__=='__main__':
             print ("Information modifié")
         
         if choix == "v":
-            lire = Read()
-            lire.read()
+            hyd = Loginview()
+            hyd.show_rdv()
     
 
         if choix == "q":
