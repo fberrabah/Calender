@@ -14,5 +14,4 @@ class Hydra():
                 setattr(self, key, value)
 
     def __str__(self):
-        return"""{} : {}
-        {}""".format(self.hour, self.title, self.description)
+        return"""\033[36m Le titre : {} \n L'heur du rendez-vous : {}\n La description : {}\033[0m""".format(self.title, self.hour, self.description)

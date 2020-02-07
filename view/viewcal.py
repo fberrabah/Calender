@@ -51,7 +51,7 @@ class Loginview():
 
 
     def show_rdv(self):
-        date = input("Entrer la date :")
+        date = input("\033[35m Entrer la date : \033[0m")
         test = self.view.read(date)
         if test :
             for i in test :
