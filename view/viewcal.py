@@ -2,22 +2,19 @@ from model.connection import *
 import calendar
 import datetime
 import locale
+from model.hydra import *
+from model.entities import *
 
 
 class Loginview():
+    view = Read()
     def __init__(self):
         self.choice = connection()
         self.month = None
         self.year = None
+        
 
 
-    
-    def read(self):
-        self.choice.initialize_connection()
-        self.choice.cursor.execute("SELECT * FROM rdv;")
-        test = self.choice.cursor.fetchall()
-        self.choice.close_connection()
-        return test
 
     def monthcurrent(self):
         
@@ -27,7 +24,7 @@ class Loginview():
         date = calendar.month(year, month)
         self.month = month
         self.year = year
-        print(date)
+        print("\033[35m{}""\033[0m".format(date))
 
     def previousmonth(self):
         if self.month > 1:
@@ -37,7 +34,7 @@ class Loginview():
             self.year -= 1
         year = datetime.datetime.today().year
         date = calendar.month(self.year, self.month)
-        print(date)
+        print("\033[34m{}""\033[0m".format(date))
 
 
 
@@ -50,8 +47,15 @@ class Loginview():
             self.year += 1
         year = datetime.datetime.today().year
         date = calendar.month(self.year, self.month)
-        print(date)
+        print("\033[31m{}""\033[0m".format(date))
 
+
+    def show_rdv(self):
+        date = input("Entrer la date :")
+        test = self.view.read(date)
+        if test :
+            for i in test :
+                print(i)
 
 
 
